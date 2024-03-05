@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import { Html, Head, Main, NextScript } from "next/document";
 import { Grid, Link } from "@mui/material";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 export default function Document() {
   const [categories, setCategories] = useState();
 
@@ -30,6 +31,7 @@ export default function Document() {
   useEffect(() => {
     fetchCategories();
   }, []);
+
   return (
     <Html lang="en">
       <Head />
@@ -43,6 +45,7 @@ export default function Document() {
             right: 0,
             top: "50%",
             width:
+              typeof window !== "undefined" &&
               Math.min(window.innerWidth, window.innerHeight) > 950
                 ? "8em"
                 : "2.5em",

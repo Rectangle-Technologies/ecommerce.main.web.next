@@ -1,11 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import textStyle from "../../helpers/textStyle";
 import TypographyLink from "../TypographyLink";
+import { useRouter } from "next/navigation";
 
 const Footer2 = (props) => {
-  const navigate = useNavigate()
+  const navigate = useRouter()
   return (
     <Grid item xs={12} md={5.5} px={2}>
       <Grid container >
@@ -22,22 +22,22 @@ const Footer2 = (props) => {
           >
             Quick Links
           </Typography>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate('/orders')}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push('/orders')}>
             My Orders
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate('/cart')}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push('/cart')}>
             View Cart
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate('/about')}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push('/about')}>
             About Us
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate('/contact')}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push('/contact')}>
             Contact Us
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate('/exchange')}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push('/exchange')}>
             Return Request
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate('/collab')}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push('/collab')}>
             Collaborate With Us
           </TypographyLink>
         </Grid>
@@ -55,7 +55,7 @@ const Footer2 = (props) => {
             Categories
           </Typography>
           {props?.categories?.map((c, idx) => (
-            <TypographyLink key={idx} style={textStyle} my={1} onClick={() => navigate(`/category/${c._id}`)}>
+            <TypographyLink key={idx} style={textStyle} my={1} onClick={() => navigate.push(`/category/${c._id}`)}>
               {c.title}
             </TypographyLink>
           ))}
@@ -73,16 +73,16 @@ const Footer2 = (props) => {
           >
             Policies
           </Typography>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate(`/privacy`)}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push(`/privacy`)}>
             Privacy Policy
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate(`/return`)}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push(`/return`)}>
             Return Policy
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate(`/shipping`)}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push(`/shipping`)}>
             Shipping Policy
           </TypographyLink>
-          <TypographyLink style={textStyle} my={1} onClick={() => navigate(`/termsofservices`)}>
+          <TypographyLink style={textStyle} my={1} onClick={() => navigate.push(`/termsofservices`)}>
             Terms Of Services
           </TypographyLink>
         </Grid>
