@@ -1,9 +1,11 @@
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header";
 import { Html, Head, Main, NextScript } from "next/document";
-import { Grid, Link } from "@mui/material";
+import { Grid, Link as MaterialLink } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 export default function Document() {
   const [categories, setCategories] = useState();
 
@@ -60,11 +62,13 @@ export default function Document() {
                   rel="noopener"
                   target="_blank"
                 >
-                  <Image
-                    alt="Facebook icon"
-                    src="/fb.png"
-                    style={{ width: "100%", borderRadius: "5px" }}
-                  />
+                  <MaterialLink>
+                    <Image
+                      alt="Facebook icon"
+                      src="/fb.png"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
                 </Link>
               </Grid>
 
@@ -74,11 +78,13 @@ export default function Document() {
                   rel="noopener"
                   target="_blank"
                 >
-                  <Image
-                    alt="Whatsapp icon"
-                    src="/wa.png"
-                    style={{ width: "100%", borderRadius: "5px" }}
-                  />
+                  <MaterialLink>
+                    <Image
+                      alt="Whatsapp icon"
+                      src="/wa.png"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
                 </Link>
               </Grid>
 
@@ -88,11 +94,13 @@ export default function Document() {
                   rel="noopener"
                   target="_blank"
                 >
-                  <Image
-                    alt="Youtube icon"
-                    src="/yt.png"
-                    style={{ width: "100%", borderRadius: "5px" }}
-                  />
+                  <MaterialLink>
+                    <Image
+                      alt="Youtube icon"
+                      src="/yt.png"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
                 </Link>
               </Grid>
 
@@ -102,11 +110,13 @@ export default function Document() {
                   rel="noopener"
                   target="_blank"
                 >
-                  <Image
-                    alt="India"
-                    src="/in.jpeg"
-                    style={{ width: "100%", borderRadius: "5px" }}
-                  />
+                  <MaterialLink>
+                    <Image
+                      alt="India"
+                      src="/in.jpeg"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
                 </Link>
               </Grid>
             </Grid>
