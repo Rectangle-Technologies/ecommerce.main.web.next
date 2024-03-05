@@ -1,0 +1,28 @@
+.about_page_banner_img,
+.about_page_feature_img {
+    width: 100vw;
+    /* aspect-ratio: 3.5; */
+    background-size: cover;
+    object-fit: cover;
+}
+
+.about_page_banner_img {
+    height: 254px;
+    background: url(../../public/about_page_banner.jpeg) center center;
+}
+
+.about_page_feature_img {
+    aspect-ratio: 5.5;
+    background: url(../../public/insta.jpeg) center center;
+}
+
+.about_insta_img {
+    aspect-ratio: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.about_insta_img>img {
+    width: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,10 @@
+.navbar_item_selected {
+    border-bottom: 4px solid #EB31E2;
+    font-weight: 600 !important;
+}
+
+.navbar_item { 
+    font-family: "Poppins" !important; 
+    padding: 0px 8px 0px 8px;
+    color: black;
+}
