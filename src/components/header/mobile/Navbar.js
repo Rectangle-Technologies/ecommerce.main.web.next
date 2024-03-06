@@ -76,6 +76,8 @@ const NavbarMobile = (props) => {
         <Image
           alt="Bloom Company's Logo"
           src="/logo.png"
+          height={100}
+          width={100}
           style={{ maxHeight: "100%", width: "80%" }}
         />
       </Link>

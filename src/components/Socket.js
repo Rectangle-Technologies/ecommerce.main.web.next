@@ -12,7 +12,7 @@ const Socket = (props) => {
   const navigate = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
-  if (!window.socket) {
+  if (typeof window !== "undefined" && !window.socket) {
     window.socket = new SocketAPI(
       "userid",
       dispatch,
@@ -34,14 +34,17 @@ const Socket = (props) => {
       });
     }
   }, []);
-
-  return (
-    <div className="socket-wrapper">
-      <SocketContext.Provider value={{ socket: window.socket }}>
-        {props.children}
-      </SocketContext.Provider>
-    </div>
-  );
+  if (typeof window !== "undefined") {
+    return (
+      <div className="socket-wrapper">
+        <SocketContext.Provider value={{ socket: window.socket }}>
+          {props.children}
+        </SocketContext.Provider>
+      </div>
+    );
+  } else {
+    return <div className="socket-wrapper">{props.children}</div>;
+  }
 };
 
 const mapStateToProps = (state) => {

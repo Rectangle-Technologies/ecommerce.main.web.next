@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { BrowserView, TabletView, MobileOnlyView } from "react-device-detect";
 import FixedNotificationDesktop from "./desktop/FixedNotification";
@@ -10,11 +10,13 @@ import Tablet from "../responsive/Tablet";
 import Mobile from "../responsive/Mobile";
 
 const Header = (props) => {
-    const { innerWidth: width, innerHeight: height } = window;
-    return (
-        <>
-            {/* fix notification */}
-            {/* <Desktop>
+  const width = typeof window !== "undefined" ? window.innerWidth : null;
+  const height = typeof window !== "undefined" ? window.innerHeight : null;
+
+  return (
+    <>
+      {/* fix notification */}
+      {/* <Desktop>
                 <FixedNotificationDesktop />
             </Desktop>
             <Tablet>
@@ -24,31 +26,32 @@ const Header = (props) => {
                 <FixedNotificationMobile />
             </Mobile> */}
 
-
-            {/* NAVBAR */}
-            <BrowserView>
-                {width > 900
-                    ? <NavbarDesktop categories={props?.categories} />
-                    : <NavbarMobile categories={props?.categories} />
-                }
-            </BrowserView>
-            <TabletView>
-                {width > 900
-                    ? <NavbarDesktop categories={props?.categories} />
-                    : <NavbarMobile categories={props?.categories} />
-                }
-            </TabletView>
-            <MobileOnlyView>
-                <NavbarMobile categories={props?.categories} />
-            </MobileOnlyView>
-        </>
-    )
-}
+      {/* NAVBAR */}
+      <BrowserView>
+        {width > 900 ? (
+          <NavbarDesktop categories={props?.categories} />
+        ) : (
+          <NavbarMobile categories={props?.categories} />
+        )}
+      </BrowserView>
+      <TabletView>
+        {width > 900 ? (
+          <NavbarDesktop categories={props?.categories} />
+        ) : (
+          <NavbarMobile categories={props?.categories} />
+        )}
+      </TabletView>
+      <MobileOnlyView>
+        <NavbarMobile categories={props?.categories} />
+      </MobileOnlyView>
+    </>
+  );
+};
 
 const mapStateToProps = (state) => {
-    return {
-        auth: state.auth
-    }
-}
+  return {
+    auth: state.auth,
+  };
+};
 
 export default connect(mapStateToProps, {})(Header);

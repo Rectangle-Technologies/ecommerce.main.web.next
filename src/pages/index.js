@@ -64,13 +64,26 @@ const Landing = (props) => {
     fetchNewArrivals();
     fetchCategories();
   }, []);
+
   return (
     <>
       {/* <Caraousel /> */}
       <DoubleTextComponent
-        backTextFontSize={window.innerWidth < 500 ? "9.5vw" : "8vw"}
-        frontTextFontSize={window.innerWidth < 500 ? "5vw" : "3.5vw"}
-        frontTextTopDistance={window.innerWidth < 500 ? "0vw" : "0vw"}
+        backTextFontSize={
+          typeof window !== "undefined" && window.innerWidth < 500
+            ? "9.5vw"
+            : "8vw"
+        }
+        frontTextFontSize={
+          typeof window !== "undefined" && window.innerWidth < 500
+            ? "5vw"
+            : "3.5vw"
+        }
+        frontTextTopDistance={
+          typeof window !== "undefined" && window.innerWidth < 500
+            ? "0vw"
+            : "0vw"
+        }
         backText=""
         frontText="New Arrivals"
         marginTop="1.5vw"
@@ -78,7 +91,9 @@ const Landing = (props) => {
       <Grid
         container
         my={2}
-        spacing={window.innerWidth > 600 ? 6 : 3}
+        spacing={
+          typeof window !== "undefined" && window.innerWidth > 600 ? 6 : 3
+        }
         style={{ padding: "0px 7.5vw 0px 7.5vw" }}
       >
         {products?.map((p, idx) => (
@@ -98,9 +113,21 @@ const Landing = (props) => {
         ))}
       </Grid>
       <DoubleTextComponent
-        backTextFontSize={window.innerWidth < 500 ? "9.5vw" : "8vw"}
-        frontTextFontSize={window.innerWidth < 500 ? "5vw" : "3.5vw"}
-        frontTextTopDistance={window.innerWidth < 500 ? "0vw" : "0vw"}
+        backTextFontSize={
+          typeof window !== "undefined" && window.innerWidth < 500
+            ? "9.5vw"
+            : "8vw"
+        }
+        frontTextFontSize={
+          typeof window !== "undefined" && window.innerWidth < 500
+            ? "5vw"
+            : "3.5vw"
+        }
+        frontTextTopDistance={
+          typeof window !== "undefined" && window.innerWidth < 500
+            ? "0vw"
+            : "0vw"
+        }
         backText=""
         frontText="Categories"
         marginTop="1.5vw"

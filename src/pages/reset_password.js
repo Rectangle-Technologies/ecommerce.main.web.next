@@ -75,7 +75,13 @@ const ResetPasswordEmail = (props) => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <center>
-            <Image alt="Bloom Company logo" src="/logo.png" style={{ width: "60%" }} />
+            <Image
+              alt="Bloom Company logo"
+              src="/logo.png"
+              height={100}
+              width={100}
+              style={{ width: "60%" }}
+            />
           </center>
         </Grid>
         <Grid item xs={12}>

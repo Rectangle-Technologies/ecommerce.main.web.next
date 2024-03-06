@@ -52,8 +52,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-function App({ Component, pageProps }) {
+function AppUpgrade({ Component, pageProps }) {
   const [categories, setCategories] = useState();
+
   const fetchCategories = async () => {
     props.addLoader();
     try {
@@ -77,97 +78,121 @@ function App({ Component, pageProps }) {
   useEffect(() => {
     fetchCategories();
   }, []);
+
   return (
-    <ReduxSetup>
-      <Socket>
-        <ScrollToTop>
-          <Header categories={categories} />
-          <Component {...pageProps} />
-          <Footer categories={categories} />
-          <div
-            style={{
-              position: "fixed",
-              right: 0,
-              top: "50%",
-              width:
-                typeof window !== "undefined" &&
-                Math.min(window.innerWidth, window.innerHeight) > 950
-                  ? "8em"
-                  : "2.5em",
-              transform: "translate(0%, -50%)",
-            }}
-          >
-            <div style={{ position: "relative", top: "-50%" }}>
-              <Grid container>
-                <Grid item xs={12}>
-                  <Link
-                    href="https://www.facebook.com/Bloom-boutique-805278062837758/"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <MaterialLink>
-                      <Image
-                        alt="Facebook icon"
-                        src="/fb.png"
-                        style={{ width: "100%", borderRadius: "5px" }}
-                      />
-                    </MaterialLink>
-                  </Link>
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Link
-                    href="https://wa.me/918983355550"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <MaterialLink>
-                      <Image
-                        alt="Whatsapp icon"
-                        src="/wa.png"
-                        style={{ width: "100%", borderRadius: "5px" }}
-                      />
-                    </MaterialLink>
-                  </Link>
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Link
-                    href="https://www.youtube.com/channel/UCU4Pe-yOh1BrfeZGYhX062Q"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <MaterialLink>
-                      <Image
-                        alt="Youtube icon"
-                        src="/yt.png"
-                        style={{ width: "100%", borderRadius: "5px" }}
-                      />
-                    </MaterialLink>
-                  </Link>
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Link
-                    href="https://www.instagram.com/bloom_by_khushbu/"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <MaterialLink>
-                      <Image
-                        alt="India"
-                        src="/in.jpeg"
-                        style={{ width: "100%", borderRadius: "5px" }}
-                      />
-                    </MaterialLink>
-                  </Link>
-                </Grid>
+    <Socket>
+      <ScrollToTop>
+        <Header categories={categories} />
+        <Component {...pageProps} />
+        <Footer categories={categories} />
+        <div
+          style={{
+            position: "fixed",
+            right: 0,
+            top: "50%",
+            width:
+              typeof window !== "undefined" &&
+              Math.min(window.innerWidth, window.innerHeight) > 950
+                ? "8em"
+                : "2.5em",
+            transform: "translate(0%, -50%)",
+          }}
+        >
+          <div style={{ position: "relative", top: "-50%" }}>
+            <Grid container>
+              <Grid item xs={12}>
+                <Link
+                  href="https://www.facebook.com/Bloom-boutique-805278062837758/"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <MaterialLink>
+                    <Image
+                      alt="Facebook icon"
+                      src="/fb.png"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
+                </Link>
               </Grid>
-            </div>
+
+              <Grid item xs={12}>
+                <Link
+                  href="https://wa.me/918983355550"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <MaterialLink>
+                    <Image
+                      alt="Whatsapp icon"
+                      src="/wa.png"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
+                </Link>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Link
+                  href="https://www.youtube.com/channel/UCU4Pe-yOh1BrfeZGYhX062Q"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <MaterialLink>
+                    <Image
+                      alt="Youtube icon"
+                      src="/yt.png"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
+                </Link>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Link
+                  href="https://www.instagram.com/bloom_by_khushbu/"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <MaterialLink>
+                    <Image
+                      alt="India"
+                      src="/in.jpeg"
+                      style={{ width: "100%", borderRadius: "5px" }}
+                    />
+                  </MaterialLink>
+                </Link>
+              </Grid>
+            </Grid>
           </div>
-        </ScrollToTop>
-      </Socket>
-    </ReduxSetup>
+        </div>
+      </ScrollToTop>
+    </Socket>
   );
 }
 
+const AppUpgradeConnect = connect(mapStateToProps, { addLoader, removeLoader })(
+  AppUpgrade
+);
+
+function App() {
+  const [hasDOMLoadedCompletely, setHasDOMLoadedCompletely] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasDOMLoadedCompletely(true);
+    }
+  }, []);
+  if (!hasDOMLoadedCompletely) {
+    return;
+  }
+  return (
+    <div className="bloom-boutique">
+      <ReduxSetup>
+        <AppUpgradeConnect />
+      </ReduxSetup>
+    </div>
+  );
+}
+
+export default App;

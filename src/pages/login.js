@@ -86,6 +86,7 @@ function Login(props) {
           alt="Bloom Company logo"
           style={{ maxWidth: "300px", width: "50vw", marginBottom: 25 }}
           src="/logo.png"
+          width={100}
         />
       </center>
 
