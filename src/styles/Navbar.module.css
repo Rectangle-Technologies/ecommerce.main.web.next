@@ -1,0 +1,22 @@
+.navbar_item_selected {
+    border-bottom: 4px solid #EB31E2;
+    font-weight: 600 !important;
+}
+
+.navbar_item {
+    font-family: "Poppins" !important;
+    padding: 0px 8px 0px 8px;
+    color: black;
+}
+.navbar_mobile_item_selected {
+    /* border-bottom: 4px solid #EB31E2!important; */
+    font-weight: 600 !important;
+}
+
+.navbar_mobile_item {
+    font-family: "Poppins" !important;
+    padding: 15px 15px 15px 15px;
+    color: black;
+    width: 80vw;
+    border-bottom: 0.2px solid #928C8C4D;
+}

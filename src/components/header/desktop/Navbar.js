@@ -4,7 +4,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import { Badge, Menu, MenuItem, Typography } from "@mui/material";
-import "./navbar.css";
+import styles from "@/styles/Navbar.module.css";
 import { connect } from "react-redux";
 import { logout } from "../../../redux/services/actions/authActions";
 import { styled } from "@mui/material/styles";
@@ -68,7 +68,9 @@ const NavbarDesktop = (props) => {
           <Link href="/" style={{ textDecoration: "none" }}>
             <Typography
               className={
-                url === "/" ? "navbar_item navbar_item_selected" : "navbar_item"
+                url === "/"
+                  ? `${styles.navbar_item} ${styles.navbar_item_selected}`
+                  : `${styles.navbar_item}`
               }
               style={{ fontSize: 18 }}
             >
@@ -85,8 +87,8 @@ const NavbarDesktop = (props) => {
                 <Typography
                   className={
                     url === `/category/${category._id}`
-                      ? "navbar_item navbar_item_selected"
-                      : "navbar_item"
+                      ? `${styles.navbar_item} ${styles.navbar_item_selected}`
+                      : `${styles.navbar_item}`
                   }
                   style={{ fontSize: 18 }}
                 >
@@ -109,8 +111,8 @@ const NavbarDesktop = (props) => {
             <Typography
               className={
                 url === "/diaries"
-                  ? "navbar_item navbar_item_selected"
-                  : "navbar_item"
+                  ? `${styles.navbar_item} ${styles.navbar_item_selected}`
+                  : `${styles.navbar_item}`
               }
               style={{ fontSize: 18 }}
             >
@@ -121,8 +123,8 @@ const NavbarDesktop = (props) => {
             <Typography
               className={
                 url === "/about"
-                  ? "navbar_item navbar_item_selected"
-                  : "navbar_item"
+                  ? `${styles.navbar_item} ${styles.navbar_item_selected}`
+                  : `${styles.navbar_item}`
               }
               style={{ fontSize: 18 }}
             >
@@ -133,8 +135,8 @@ const NavbarDesktop = (props) => {
             <Typography
               className={
                 url === "/contact"
-                  ? "navbar_item navbar_item_selected"
-                  : "navbar_item"
+                  ? `${styles.navbar_item} ${styles.navbar_item_selected}`
+                  : `${styles.navbar_item}`
               }
               style={{ fontSize: 18 }}
             >

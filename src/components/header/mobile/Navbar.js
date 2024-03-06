@@ -4,7 +4,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import { Badge, Button, Menu, MenuItem, Typography } from "@mui/material";
-import "./navbar.css";
+import styles from "@/styles/Navbar.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { connect } from "react-redux";
@@ -129,7 +129,7 @@ const NavbarMobile = (props) => {
               }}
             >
               <Typography
-                className="navbar_mobile_item navbar_mobile_item_selected"
+                className={`${styles.navbar_mobile_item} ${styles.navbar_mobile_item_selected}`}
                 style={{ fontSize: 18 }}
               >
                 New-in
@@ -147,7 +147,7 @@ const NavbarMobile = (props) => {
                   }}
                 >
                   <Typography
-                    className="navbar_mobile_item"
+                    className={styles.navbar_mobile_item}
                     style={{ fontSize: 18 }}
                   >
                     {category?.title}
@@ -163,7 +163,7 @@ const NavbarMobile = (props) => {
               }}
             >
               <Typography
-                className="navbar_mobile_item"
+                className={styles.navbar_mobile_item}
                 style={{ fontSize: 18 }}
               >
                 Client Diaries
@@ -177,7 +177,7 @@ const NavbarMobile = (props) => {
               }}
             >
               <Typography
-                className="navbar_mobile_item"
+                className={styles.navbar_mobile_item}
                 style={{ fontSize: 18 }}
               >
                 About Us
@@ -191,7 +191,7 @@ const NavbarMobile = (props) => {
               }}
             >
               <Typography
-                className="navbar_mobile_item"
+                className={styles.navbar_mobile_item}
                 style={{ fontSize: 18 }}
               >
                 Contact us
@@ -200,28 +200,28 @@ const NavbarMobile = (props) => {
             {/* <div style={{ width: "100vw", borderBottom: "4px solid #EB31E2" }} ></div> */}
             {/* <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <SearchIcon style={{ padding: "0px 7.5px 0px 7.5px", fontSize: 30 }} />
-                            <Typography className="navbar_mobile_item" style={{ fontSize: 24 }} >
+                            <Typography className={styles.navbar_mobile_item} style={{ fontSize: 24 }} >
                                 Search
                             </Typography>
                         </div>
 
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <FavoriteBorderIcon style={{ padding: "0px 7.5px 0px 7.5px", fontSize: 30 }} />
-                            <Typography className="navbar_mobile_item" style={{ fontSize: 24 }} >
+                            <Typography className={styles.navbar_mobile_item} style={{ fontSize: 24 }} >
                                 Wishlist
                             </Typography>
                         </div>
 
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <ShoppingCartOutlinedIcon style={{ padding: "0px 7.5px 0px 7.5px", fontSize: 30 }} />
-                            <Typography className="navbar_mobile_item" style={{ fontSize: 24 }} >
+                            <Typography className={styles.navbar_mobile_item} style={{ fontSize: 24 }} >
                                 Cart
                             </Typography>
                         </div>
 
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <PersonOutlineOutlinedIcon style={{ padding: "0px 7.5px 0px 7.5px", fontSize: 30 }} />
-                            <Typography className="navbar_mobile_item" style={{ fontSize: 24 }} >
+                            <Typography className={styles.navbar_mobile_item} style={{ fontSize: 24 }} >
                                 Profile
                             </Typography>
                         </div> */}

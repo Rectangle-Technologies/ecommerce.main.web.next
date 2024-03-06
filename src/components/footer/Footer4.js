@@ -72,17 +72,29 @@ const Footer4 = (props) => {
         Follow us on:
       </Typography>
       <Box style={{ display: "flex", flexDirection: "row" }}>
-        <Link href='https://www.facebook.com/Bloom-boutique-805278062837758/' rel="noopener" target="_blank">
+        <Link
+          href="https://www.facebook.com/Bloom-boutique-805278062837758/"
+          rel="noopener"
+          target="_blank"
+        >
           <IconButton color="primary">
             <FacebookIcon />
           </IconButton>
         </Link>
-        <Link href='https://www.instagram.com/bloom_by_khushbu/' rel="noopener" target="_blank">
+        <Link
+          href="https://www.instagram.com/bloom_by_khushbu/"
+          rel="noopener"
+          target="_blank"
+        >
           <IconButton color="secondary">
             <InstagramIcon />
           </IconButton>
         </Link>
-        <Link href='https://www.youtube.com/channel/UCU4Pe-yOh1BrfeZGYhX062Q' rel="noopener" target="_blank">
+        <Link
+          href="https://www.youtube.com/channel/UCU4Pe-yOh1BrfeZGYhX062Q"
+          rel="noopener"
+          target="_blank"
+        >
           <IconButton color="error">
             <YouTubeIcon />
           </IconButton>
@@ -100,8 +112,8 @@ const Footer4 = (props) => {
       >
         Stay Connected:
       </Typography>
-      <Typography style={{ ...textStyle, textAlign: 'justify' }} my={1}>
-        Be the first to know about promotions and what's new at Bloom By
+      <Typography style={{ ...textStyle, textAlign: "justify" }} my={1}>
+        Be the first to know about promotions and what&apos;s new at Bloom By
         Khushboo.
       </Typography>
       <TextField
@@ -111,10 +123,14 @@ const Footer4 = (props) => {
         size="small"
         sx={{ my: 1, mr: 1 }}
         onChange={(e) => setEmail(e.target.value)}
-        name='email'
+        name="email"
         value={email}
       />
-      <CustomButton variant="contained" sx={{ my: 1 }} onClick={handleSubscribe}>
+      <CustomButton
+        variant="contained"
+        sx={{ my: 1 }}
+        onClick={handleSubscribe}
+      >
         Subscribe
       </CustomButton>
     </Grid>
